@@ -1,0 +1,20 @@
+---
+- name: clone_roles
+  hosts: all
+  become: true
+  vars:
+          git_repository: "https://github.com/matsow12/Ansible-rules.git"
+          git_branch: "main"
+
+  tasks:
+          - name: Create directory
+            file:
+                 path: /etc/ansible/roles
+                 state: directory
+                 mode: '0755'
+          - name: Git checkout
+            git:
+                 repo: "{{ git_repository }}"
+                 version: "{{ git_branch }}"
+                 dest: "/etc/ansible/roles"
+
