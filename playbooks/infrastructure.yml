@@ -5,6 +5,6 @@
   become: true
   roles:
       - infrastructure
-      - sonraqube
+      - sonarqube
 
 
